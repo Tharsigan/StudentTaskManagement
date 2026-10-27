@@ -2,7 +2,7 @@ Software Configuration Management Record
 
 1. Project Information
 
-* Project Name: LibraFlow – Library Management System
+* Project Name: StudentTaskManagement – Library Management System
 * Project Type: Web Application
 * Technologies: HTML, CSS, JavaScript
 * Version: v0.1
