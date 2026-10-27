@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraFlow | Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">L</div>
+                <div>
+                    <h2>LibraFlow</h2>
+                    <span>Library Management</span>
+                </div>
+            </div>
+
+            <div class="nav-label">WORKSPACE</div>
+
+            <nav class="navigation">
+                <button class="nav-link active" data-page="dashboard">
+                    <span>▦</span> Dashboard
+                </button>
+                <button class="nav-link" data-page="books">
+                    <span>▤</span> Book Collection
+                </button>
+                <button class="nav-link" data-page="borrowing">
+                    <span>⇩</span> Borrowing
+                </button>
+                <button class="nav-link" data-page="lending">
+                    <span>⇧</span> Lending Management
+                </button>
+                <button class="nav-link" data-page="reservations">
+                    <span>◷</span> Reservations
+                </button>
+                <button class="nav-link" data-page="history">
+                    <span>◴</span> Lending History
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="policy-card">
+                    <div class="policy-icon">ⓘ</div>
+                    <h3>Library Policy</h3>
+                    <p>Borrowing period: <strong>7 days</strong></p>
+                    <p>Overdue fine: <strong>LKR 500/day</strong></p>
+                </div>
+
+                <button class="theme-button" id="themeToggle">
+                    <span id="themeIcon">☾</span>
+                    <span id="themeText">Dark mode</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">LIBRARY WORKSPACE</p>
+                    <h1 id="pageTitle">Dashboard</h1>
+                    <p class="page-subtitle" id="pageSubtitle">Your library at a glance.</p>
+                </div>
+
+                <div class="topbar-actions">
+                    <div class="today-chip">
+                        <span>◷</span>
+                        <span id="todayDate"></span>
+                    </div>
+                    <button class="button button-primary" id="headerAddBook">＋ Add Book</button>
+                </div>
+            </header>
+
+            <section class="page active" id="page-dashboard">
+                <div class="welcome-banner">
+                    <div class="welcome-content">
+                        <span class="welcome-tag">LIBRARY OVERVIEW</span>
+                        <h2>Everything your library needs,<br>all in one place.</h2>
+                        <p>Manage books, borrowing, lending, reservations, and returns with ease.</p>
+                        <button class="button button-light" data-go="books">Explore collection <span>→</span></button>
+                    </div>
+                    <div class="welcome-art" aria-hidden="true">
+                        <div class="art-circle"></div>
+                        <div class="book-stack">
+                            <div class="art-book book-one"></div>
+                            <div class="art-book book-two"></div>
+                            <div class="art-book book-three"></div>
+                            <div class="art-book book-four"></div>
+                        </div>
+                        <div class="art-sparkle sparkle-one">✦</div>
+                        <div class="art-sparkle sparkle-two">✧</div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon purple">▤</div>
+                            <span class="stat-caption">COLLECTION</span>
+                        </div>
+                        <h3 id="statTotalBooks">0</h3>
+                        <p>Total book copies</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon green">✓</div>
+                            <span class="stat-caption">AVAILABLE</span>
+                        </div>
+                        <h3 id="statAvailable">0</h3>
+                        <p>Ready to borrow</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon blue">⇧</div>
+                            <span class="stat-caption">ON LOAN</span>
+                        </div>
+                        <h3 id="statBorrowed">0</h3>
+                        <p>Currently borrowed</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon red">!</div>
+                            <span class="stat-caption">OVERDUE</span>
+                        </div>
+                        <h3 id="statOverdue">0</h3>
+                        <p>Past the due date</p>
+                    </article>
+                </div>
+
+                <div class="dashboard-grid">
+                    <section class="panel">
+                        <div class="panel-heading">
+                            <div>
+                                <h2>Recent Lending Activity</h2>
+                                <p>Latest active lending records</p>
+                            </div>
+                            <button class="text-button" data-go="lending">View all →</button>
+                        </div>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>BOOK / BORROWER</th>
+                                        <th>DUE DATE</th>
+                                        <th>STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dashboardLending"></tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="panel quick-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <h2>Quick Actions</h2>
+                                <p>Common library tasks</p>
+                            </div>
+                        </div>
+                        <button class="quick-action" data-action="add-book">
+                            <span class="quick-icon purple">＋</span>
+                            <span><strong>Add a new book</strong><small>Expand the collection</small></span>
+                            <span class="quick-arrow">→</span>
+                        </button>
+                        <button class="quick-action" data-action="borrow-book">
+                            <span class="quick-icon blue">⇩</span>
+                            <span><strong>Borrow a book</strong><small>Register a new borrower</small></span>
+                            <span class="quick-arrow">→</span>
+                        </button>
+                        <button class="quick-action" data-go="reservations">
+                            <span class="quick-icon orange">◷</span>
+                            <span><strong>Manage reservations</strong><small>Review pending requests</small></span>
+                            <span class="quick-arrow">→</span>
+                        </button>
+                    </section>
+                </div>
+
+                <section class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Overdue Overview</h2>
+                            <p>Outstanding fines are calculated at LKR 500 per overdue day.</p>
+                        </div>
+                        <button class="text-button" data-go="lending">Manage loans →</button>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>BOOK / BORROWER</th>
+                                    <th>DUE DATE</th>
+                                    <th>DAYS OVERDUE</th>
+                                    <th>FINE DUE</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboardOverdue"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <section class="page" id="page-books">
+                <div class="section-toolbar">
+                    <div class="search-box">
+                        <span>⌕</span>
+                        <input type="search" id="bookSearch" placeholder="Search title, author, ISBN...">
+                    </div>
+                    <select id="bookFilter" class="select-control">
+                        <option value="all">All books</option>
+                        <option value="available">Available</option>
+                        <option value="borrowed">All copies borrowed</option>
+                    </select>
+                    <button class="button button-primary" data-action="add-book">＋ Add Book</button>
+                </div>
+
+                <div class="collection-summary" id="collectionSummary"></div>
+                <div class="books-grid" id="booksGrid"></div>
+            </section>
+
+            <section class="page" id="page-borrowing">
+                <div class="info-banner blue-banner">
+                    <div class="info-banner-icon">⇩</div>
+                    <div>
+                        <h3>Borrowing Portal</h3>
+                        <p>Record the borrower, select an available book, and track when the book must be returned. The borrowing period is automatically set to 7 days.</p>
+                    </div>
+                    <button class="button button-primary" data-action="borrow-book">＋ Borrow a Book</button>
+                </div>
+
+                <div class="stats-grid compact-stats">
+                    <article class="stat-card">
+                        <span class="stat-caption">ACTIVE BORROWINGS</span>
+                        <h3 id="borrowActiveCount">0</h3>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-caption">DUE TODAY</span>
+                        <h3 id="borrowDueTodayCount">0</h3>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-caption">OVERDUE RECORDS</span>
+                        <h3 id="borrowOverdueCount">0</h3>
+                    </article>
+                </div>
+
+                <section class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Borrowing Records</h2>
+                            <p>Borrowers' active books and return deadlines</p>
+                        </div>
+                        <div class="search-box small-search">
+                            <span>⌕</span>
+                            <input type="search" id="borrowingSearch" placeholder="Search borrower or book...">
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>BOOK</th>
+                                    <th>BORROWER</th>
+                                    <th>BORROWED ON</th>
+                                    <th>DUE DATE</th>
+                                    <th>STATUS</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="borrowingTable"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <section class="page" id="page-lending">
+                <div class="info-banner purple-banner">
+                    <div class="info-banner-icon">⇧</div>
+                    <div>
+                        <h3>Lending Management</h3>
+                        <p>Librarian view for managing issued books, return processing, overdue tracking, and fines. Every lending entry corresponds to a borrower's record.</p>
+                    </div>
+                    <button class="button button-primary" data-action="borrow-book">＋ Issue Book</button>
+                </div>
+
+                <div class="stats-grid compact-stats">
+                    <article class="stat-card">
+                        <span class="stat-caption">BOOKS ON LOAN</span>
+                        <h3 id="lendingActiveCount">0</h3>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-caption">OVERDUE FINES</span>
+                        <h3 id="lendingFineTotal">LKR 0</h3>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-caption">COMPLETED RETURNS</span>
+                        <h3 id="lendingReturnedCount">0</h3>
+                    </article>
+                </div>
+
+                <section class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Lending Register</h2>
+                            <p>Manage book issue and return transactions</p>
+                        </div>
+                        <div class="search-box small-search">
+                            <span>⌕</span>
+                            <input type="search" id="lendingSearch" placeholder="Search records...">
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>BOOK / BORROWER</th>
+                                    <th>ISSUE DATE</th>
+                                    <th>DUE DATE</th>
+                                    <th>OVERDUE FINE</th>
+                                    <th>STATUS</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lendingTable"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <section class="page" id="page-reservations">
+                <div class="info-banner orange-banner">
+                    <div class="info-banner-icon">◷</div>
+                    <div>
+                        <h3>Book Reservations</h3>
+                        <p>Record requests for books. A reservation does not issue a book or start the 7-day borrowing period. That period starts when the book is actually borrowed.</p>
+                    </div>
+                    <button class="button button-primary" data-action="add-reservation">＋ New Reservation</button>
+                </div>
+
+                <section class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Reservation Register</h2>
+                            <p>Track pending and fulfilled reservations</p>
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>BOOK</th>
+                                    <th>REQUESTED BY</th>
+                                    <th>REQUEST DATE</th>
+                                    <th>STATUS</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reservationsTable"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <section class="page" id="page-history">
+                <div class="stats-grid compact-stats">
+                    <article class="stat-card">
+                        <span class="stat-caption">TOTAL TRANSACTIONS</span>
+                        <h3 id="historyTotalCount">0</h3>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-caption">BOOKS RETURNED</span>
+                        <h3 id="historyReturnedCount">0</h3>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-caption">FINES RECORDED</span>
+                        <h3 id="historyFineTotal">LKR 0</h3>
+                    </article>
+                </div>
+
+                <section class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Lending History</h2>
+                            <p>Past and current lending transactions</p>
+                        </div>
+                        <div class="search-box small-search">
+                            <span>⌕</span>
+                            <input type="search" id="historySearch" placeholder="Search history...">
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>BOOK / BORROWER</th>
+                                    <th>BORROWED ON</th>
+                                    <th>DUE DATE</th>
+                                    <th>RETURNED ON</th>
+                                    <th>FINE RECORDED</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTable"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <footer class="footer">
+                <span>LibraFlow Library Management System</span>
+                <span>Borrowing period: 7 days · Overdue fine: LKR 500/day</span>
+            </footer>
+        </main>
+    </div>
+
+    <div class="modal-backdrop" id="modalBackdrop">
+        <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-header">
+                <div>
+                    <p class="eyebrow" id="modalEyebrow">LIBRARY MANAGEMENT</p>
+                    <h2 id="modalTitle">Add Book</h2>
+                </div>
+                <button class="icon-button" id="modalClose" aria-label="Close dialog">×</button>
+            </div>
+            <form id="modalForm">
+                <div id="modalFields" class="form-grid"></div>
+                <div class="modal-footer">
+                    <button type="button" class="button button-secondary" id="modalCancel">Cancel</button>
+                    <button type="submit" class="button button-primary" id="modalSubmit">Save</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
