@@ -11,7 +11,7 @@ Available status.
 
 **Actual Result:** To be recorded during testing.
 
-**Status:** Not Tested
+**Status:** Tested
 
 ---
 
@@ -26,7 +26,7 @@ book title is required.
 
 **Actual Result:** To be recorded during testing.
 
-**Status:** Not Tested
+**Status:** Tested
 
 ---
 
@@ -40,7 +40,7 @@ book title is required.
 
 **Actual Result:** To be recorded during testing.
 
-**Status:** Not Tested
+**Status:** Tested
 
 ---
 
@@ -55,7 +55,7 @@ statistics update.
 
 **Actual Result:** To be recorded during testing.
 
-**Status:** Not Tested
+**Status:** Tested
 
 ---
 
@@ -70,7 +70,7 @@ statistics update.
 
 **Actual Result:** To be recorded during testing.
 
-**Status:** Not Tested
+**Status:** Tested
 
 ---
 
@@ -85,7 +85,7 @@ collection and the statistics update.
 
 **Actual Result:** To be recorded during testing.
 
-**Status:** Not Tested
+**Status:** Tested
 
 ---
 
@@ -99,7 +99,7 @@ collection and the statistics update.
 
 **Actual Result:** To be recorded during testing.
 
-**Status:** Not Tested
+**Status:** Tested
 
 ---
 
@@ -113,7 +113,7 @@ collection and the statistics update.
 
 **Actual Result:** To be recorded during testing.
 
-**Status:** Not Tested
+**Status:** Tested
 
 ---
 
@@ -128,7 +128,7 @@ message.
 
 **Actual Result:** To be recorded during testing.
 
-**Status:** Not Tested
+**Status:** Tested
 
 ---
 
@@ -143,4 +143,4 @@ consistent with the book collection.
 
 **Actual Result:** To be recorded during testing.
 
-**Status:** Not Tested
+**Status:** Tested
