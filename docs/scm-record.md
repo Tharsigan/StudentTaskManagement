@@ -26,9 +26,12 @@ Git is used to track changes, maintain project history, and support collaboratio
 
 4. Baseline
 
-* Baseline Version: v0.1
-* Description: Initial project structure, existing source code, project documentation, and configuration files.
-* Status: Initial SCM setup.
+* Baseline ID: BL-01
+* Baseline Version: v0.1.0
+* Date: 2026-11-02
+* Included Changes: CR-01
+* Description: Initial project structure, existing source code, project documentation, configuration files, and the implemented search feature.
+* Status: Approved
 
 5. Change Management
 
