@@ -86,3 +86,18 @@ Replace the student labels with the actual team members' names.
 - There is no user authentication.
 
 These limitations can be addressed in future development.
+
+## Current Development Status
+
+Initial version completed.
+
+Version: 0.1.0
+
+## Selected System Features
+
+- Book collection management
+- Add and manage book details
+- Search books by title, author, ISBN, and category
+- Filter books by availability
+- Track available and borrowed book copies
+- Manage library records
