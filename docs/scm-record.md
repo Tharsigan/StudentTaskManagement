@@ -53,3 +53,32 @@ Examples:
 7. Current Status
 
 The project already has an existing web application. The SCM tasks focus on documenting its configuration items and managing its files using Git.
+
+# Software Configuration Management Record
+
+## Task 04 – Branching Strategy
+
+### Selected Branching Strategy
+The team uses the Feature Branch Workflow.
+
+### Reason for Selection
+- Each student can work independently.
+- The main branch remains stable.
+- Features can be developed separately.
+- Changes can be tested before merging.
+- It supports teamwork and collaboration.
+
+### Branch Details
+
+**main:**
+Stable integrated version of the application.
+
+**feature/CR-02-ui-update:**
+Used by Student A for UI development.
+
+**feature/CR-03-validation:**
+Used by Student B for validation development.
+
+## Merge, Merge Conflict and Conflict Resolution
+
+The team will merge the developed features into the main branch. A merge conflict may occur when both branches modify the same section of a file. The team will inspect the conflict, resolve it, test the application and record the result.

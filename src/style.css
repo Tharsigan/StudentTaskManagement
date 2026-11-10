@@ -1315,3 +1315,9 @@ tbody tr:last-child td {
         padding: 20px;
     }
 }
+
+.welcome-note {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-top: 8px;
+}

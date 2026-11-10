@@ -80,9 +80,17 @@
                     <div class="welcome-content">
                         <span class="welcome-tag">LIBRARY OVERVIEW</span>
                         <h2>Everything your library needs,<br>all in one place.</h2>
+
                         <p>Manage books, borrowing, lending, reservations, and returns with ease.</p>
+
+                        <!-- CR-02: UI Update -->
+                        <p class="welcome-note">
+                            Keep your library organized and up to date.
+                        </p>
+
                         <button class="button button-light" data-go="books">Explore collection <span>→</span></button>
                     </div>
+
                     <div class="welcome-art" aria-hidden="true">
                         <div class="art-circle"></div>
                         <div class="book-stack">
@@ -143,6 +151,7 @@
                             </div>
                             <button class="text-button" data-go="lending">View all →</button>
                         </div>
+
                         <div class="table-wrap">
                             <table>
                                 <thead>
@@ -164,16 +173,19 @@
                                 <p>Common library tasks</p>
                             </div>
                         </div>
+
                         <button class="quick-action" data-action="add-book">
                             <span class="quick-icon purple">＋</span>
                             <span><strong>Add a new book</strong><small>Expand the collection</small></span>
                             <span class="quick-arrow">→</span>
                         </button>
+
                         <button class="quick-action" data-action="borrow-book">
                             <span class="quick-icon blue">⇩</span>
                             <span><strong>Borrow a book</strong><small>Register a new borrower</small></span>
                             <span class="quick-arrow">→</span>
                         </button>
+
                         <button class="quick-action" data-go="reservations">
                             <span class="quick-icon orange">◷</span>
                             <span><strong>Manage reservations</strong><small>Review pending requests</small></span>
@@ -190,6 +202,7 @@
                         </div>
                         <button class="text-button" data-go="lending">Manage loans →</button>
                     </div>
+
                     <div class="table-wrap">
                         <table>
                             <thead>
@@ -212,11 +225,13 @@
                         <span>⌕</span>
                         <input type="search" id="bookSearch" placeholder="Search title, author, ISBN...">
                     </div>
+
                     <select id="bookFilter" class="select-control">
                         <option value="all">All books</option>
                         <option value="available">Available</option>
                         <option value="borrowed">All copies borrowed</option>
                     </select>
+
                     <button class="button button-primary" data-action="add-book">＋ Add Book</button>
                 </div>
 
@@ -239,10 +254,12 @@
                         <span class="stat-caption">ACTIVE BORROWINGS</span>
                         <h3 id="borrowActiveCount">0</h3>
                     </article>
+
                     <article class="stat-card">
                         <span class="stat-caption">DUE TODAY</span>
                         <h3 id="borrowDueTodayCount">0</h3>
                     </article>
+
                     <article class="stat-card">
                         <span class="stat-caption">OVERDUE RECORDS</span>
                         <h3 id="borrowOverdueCount">0</h3>
@@ -255,11 +272,13 @@
                             <h2>Borrowing Records</h2>
                             <p>Borrowers' active books and return deadlines</p>
                         </div>
+
                         <div class="search-box small-search">
                             <span>⌕</span>
                             <input type="search" id="borrowingSearch" placeholder="Search borrower or book...">
                         </div>
                     </div>
+
                     <div class="table-wrap">
                         <table>
                             <thead>
@@ -293,10 +312,12 @@
                         <span class="stat-caption">BOOKS ON LOAN</span>
                         <h3 id="lendingActiveCount">0</h3>
                     </article>
+
                     <article class="stat-card">
                         <span class="stat-caption">OVERDUE FINES</span>
                         <h3 id="lendingFineTotal">LKR 0</h3>
                     </article>
+
                     <article class="stat-card">
                         <span class="stat-caption">COMPLETED RETURNS</span>
                         <h3 id="lendingReturnedCount">0</h3>
@@ -309,11 +330,13 @@
                             <h2>Lending Register</h2>
                             <p>Manage book issue and return transactions</p>
                         </div>
+
                         <div class="search-box small-search">
                             <span>⌕</span>
                             <input type="search" id="lendingSearch" placeholder="Search records...">
                         </div>
                     </div>
+
                     <div class="table-wrap">
                         <table>
                             <thead>
@@ -349,6 +372,7 @@
                             <p>Track pending and fulfilled reservations</p>
                         </div>
                     </div>
+
                     <div class="table-wrap">
                         <table>
                             <thead>
@@ -372,10 +396,12 @@
                         <span class="stat-caption">TOTAL TRANSACTIONS</span>
                         <h3 id="historyTotalCount">0</h3>
                     </article>
+
                     <article class="stat-card">
                         <span class="stat-caption">BOOKS RETURNED</span>
                         <h3 id="historyReturnedCount">0</h3>
                     </article>
+
                     <article class="stat-card">
                         <span class="stat-caption">FINES RECORDED</span>
                         <h3 id="historyFineTotal">LKR 0</h3>
@@ -388,11 +414,13 @@
                             <h2>Lending History</h2>
                             <p>Past and current lending transactions</p>
                         </div>
+
                         <div class="search-box small-search">
                             <span>⌕</span>
                             <input type="search" id="historySearch" placeholder="Search history...">
                         </div>
                     </div>
+
                     <div class="table-wrap">
                         <table>
                             <thead>
@@ -412,8 +440,8 @@
             </section>
 
             <footer class="footer">
-                <span>LibraFlow Library Management System</span>
-                <span>Borrowing period: 7 days · Overdue fine: LKR 500/day</span>
+                <span>LibraFlow Library Management System </span>
+                <span>Borrowing period: 7 days · Overdue fine: LKR 500/day </span>
             </footer>
         </main>
     </div>
@@ -427,8 +455,10 @@
                 </div>
                 <button class="icon-button" id="modalClose" aria-label="Close dialog">×</button>
             </div>
+
             <form id="modalForm">
                 <div id="modalFields" class="form-grid"></div>
+
                 <div class="modal-footer">
                     <button type="button" class="button button-secondary" id="modalCancel">Cancel</button>
                     <button type="submit" class="button button-primary" id="modalSubmit">Save</button>

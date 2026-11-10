@@ -86,11 +86,15 @@ Replace the student labels with the actual team members' names.
 - There is no user authentication.
 
 These limitations can be addressed in future development.
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/CR-02-ui-update
 ## Current Development Status
 
 Initial version completed.
 
+<<<<<<< HEAD
 Version: 0.1.0
 
 ## Selected System Features
@@ -101,3 +105,6 @@ Version: 0.1.0
 - Filter books by availability
 - Track available and borrowed book copies
 - Manage library records
+=======
+Version: 0.1.0
+>>>>>>> feature/CR-02-ui-update
