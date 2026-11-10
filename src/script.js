@@ -808,3 +808,37 @@ function initialise() {
 }
 
 initialise();
+
+
+function validateTask(taskName, description, dueDate) {
+
+    if (taskName.trim() === "") {
+        alert("Please enter a task name.");
+        return false;
+    }
+
+    if (description.trim() === "") {
+        alert("Please enter a description.");
+        return false;
+    }
+
+    if (dueDate === "") {
+        alert("Please select a due date.");
+        return false;
+    }
+
+    return true;
+}
+
+function addTask() {
+
+    const taskName = document.getElementById("taskName").value;
+    const description = document.getElementById("description").value;
+    const dueDate = document.getElementById("dueDate").value;
+
+    if (!validateTask(taskName, description, dueDate)) {
+        return;
+    }
+
+    // Your existing code to save the task goes here.
+}
