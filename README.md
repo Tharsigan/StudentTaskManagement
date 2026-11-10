@@ -86,3 +86,8 @@ Replace the student labels with the actual team members' names.
 - There is no user authentication.
 
 These limitations can be addressed in future development.
+## Current Development Status
+
+Initial version completed.
+
+Version: 0.1.0
