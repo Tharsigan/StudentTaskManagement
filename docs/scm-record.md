@@ -82,3 +82,14 @@ Used by Student B for validation development.
 ## Merge, Merge Conflict and Conflict Resolution
 
 The team will merge the developed features into the main branch. A merge conflict may occur when both branches modify the same section of a file. The team will inspect the conflict, resolve it, test the application and record the result.
+
+## Task 06 – Integration Test
+
+The application was tested after merging CR-02 into the main branch.
+
+- Page loads: PASS
+- UI works: PASS
+- Existing functionality works: PASS
+
+**Integration Test: PASS**
+
